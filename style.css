@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#game-container {
+    text-align: center;
+}
+
+#character {
+    background-color: lightblue;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#enemy {
+    background-color: lightcoral;
+    padding: 10px;
+}

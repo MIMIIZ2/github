@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Shop, Player Inventory, and Scrollable List</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        #shop,
+        #inventory,
+        #scrollable-list {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .inventory-slot {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .item-portrait {
+            width: 50px; /* Adjust the width as needed */
+            height: 50px; /* Adjust the height as needed */
+            margin-right: 10px; /* Adjust the margin as needed */
+        }
+
+        #scrollable-list {
+            width: 200px;
+            height: 150px;
+            overflow-y: scroll;
+        }
+
+        #scroll-button {
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #exit-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<button id="exit-button">Exit</button>
+
+<div id="shop"></div>
+
+<button onclick="buy()">Buy</button>
+<button onclick="sell()">Sell</button>
+
+<button id="open-inventory-button">Open Inventory</button>
+
+<div id="inventory">
+    <h2>Player Inventory</h2>
+    <div id="item-list" class="inventory-container"></div>
+</div>
+
+<div id="scrollable-list">
+    <ul id="scroll-list"></ul>
+</div>
+
+<button id="scroll-button">Scroll Down</button>
+
+<script src="shop.js"></script>
+<script src="inventory.js"></script>
+<script src="scrollable_list.js"></script>
+<script>
+    $(document).ready(function() {
+        // Initialize the content when the document is ready
+        loadShopContent();
+        loadInventoryContent();
+        loadScrollListContent();
+
+        // Exit button click event
+        $("#exit-button").on("click", function() {
+            exitGame();
+        });
+    });
+
+    function loadShopContent() {
+        // Use AJAX to load shop content dynamically
+        $.ajax({
+            url: "shop_content.php", // Create a PHP file (shop_content.php) to handle shop content
+            success: function(response) {
+                $("#shop").html(response);
+            }
+        });
+    }
+
+    function loadInventoryContent() {
+        // Use AJAX to load inventory content dynamically
+        $.ajax({
+            url: "inventory_content.php", // Create a PHP file (inventory_content.php) to handle inventory content
+            success: function(response) {
+                $("#item-list").html(response);
+            }
+        });
+    }
+
+    function loadScrollListContent() {
+        // Use AJAX to load scrollable list content dynamically
+        $.ajax({
+            url: "scroll_list_content.php", // Create a PHP file (scroll_list_content.php) to handle scroll list content
+            success: function(response) {
+                $("#scroll-list").html(response);
+            }
+        });
+    }
+
+    function exitGame() {
+        // Implement exit game functionality or redirect to another page
+        alert("Exiting the game!");
+        // You can add additional logic here, such as redirecting to another page or closing the window.
+    }
+</script>
+</body>
+</html>

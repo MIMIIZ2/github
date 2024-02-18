@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chat Box</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        #chat-box {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        #message-input {
+            width: 80%;
+        }
+
+        #send-button {
+            width: 18%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="chat-box"></div>
+<input type="text" id="message-input" placeholder="Type your message">
+<button id="send-button" onclick="sendMessage()">Send</button>
+
+<script src="chat.js"></script>
+</body>
+</html>

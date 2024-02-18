@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined PHP AJAX Shop, Player Inventory, and Scrollable List</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        #shop {
+            margin-bottom: 20px;
+        }
+
+        #inventory {
+            display: none;
+        }
+
+        #item-list {
+            padding: 0;
+            list-style: none;
+        }
+
+        .inventory-slot {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .item-portrait {
+            width: 50px; /* Adjust the width as needed */
+            height: 50px; /* Adjust the height as needed */
+            margin-right: 10px; /* Adjust the margin as needed */
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        #scrollable-list {
+            width: 200px;
+            height: 150px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        #scroll-button {
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="shop">
+    <!-- Product information will be displayed here -->
+</div>
+
+<button onclick="buy()">Buy</button>
+<button onclick="sell()">Sell</button>
+<button onclick="exitShop()">Exit</button>
+
+<button id="open-inventory-button">Open Inventory</button>
+
+<div id="inventory">
+    <h2>Player Inventory</h2>
+    <ul id="item-list" class="inventory-container"></ul>
+</div>
+
+<div id="scrollable-list">
+    <ul id="scroll-list">
+        <!-- List items will be dynamically added here -->
+    </ul>
+</div>
+
+<button id="scroll-button" onclick="scrollList()">Scroll Down</button>
+
+<script src="shop.js"></script>
+<script src="inventory.js"></script>
+<script src="scrollable_list.js"></script>
+</body>
+</html>
